@@ -10,7 +10,7 @@ $(document).ready(function () {
     const moveX = e.originalEvent.touches[0].clientX;
     const distance = startX - moveX;
     console.log(distance);
-    if (distance > 70) {
+    if (distance > 50) {
       // Adjust threshold as needed
       // $(this).find('.delete-btn').show();
       $(this).find(".delete-btn").addClass("show");
