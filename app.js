@@ -12,24 +12,19 @@ $(document).ready(function() {
       if (!swiping) return; // Exit if not in a swiping gesture
       
       const moveX = e.originalEvent.touches[0].clientX;
-      const moveY = e.originalEvent.touches[0].clientY;
       const distanceX = startX - moveX;
-      const distanceY = Math.abs(startY - moveY); // Absolute distance moved vertically
+
       
-      if (distanceY > distanceX) {
-        // If more vertical movement than horizontal, allow default behavior (scrolling)
-        return;
-      }
-
-      e.preventDefault(); // Prevent scrolling when swiping horizontally
-
-      if (distanceX > 70) { // Adjust threshold as needed
+      if (distanceX > 70) { 
+        e.preventDefault(); // Prevent scrolling when swiping horizontally
         $(this).find('.delete-btn').addClass("show");
       } else {
+        e.preventDefault(); // Prevent scrolling when swiping horizontally
         $(this).find('.delete-btn').removeClass("show");
       }
       
-      if (distanceX > 230) { // Adjust auto-delete threshold as needed
+      if (distanceX > 230) { 
+        e.preventDefault(); // Prevent scrolling when swiping horizontally
         $(this).find('.delete-btn').addClass("removed");
         $(this).fadeOut(); // Auto-delete the card
       }
